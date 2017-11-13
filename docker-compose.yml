@@ -1,0 +1,6 @@
+version: '2'
+services:
+  rasa_nlu:
+    image: registry.arrking.com/ada/rasa_nlu:latest
+  rasa_trainer:
+    

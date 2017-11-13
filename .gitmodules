@@ -1,0 +1,6 @@
+[submodule "rasa-nlu-trainer"]
+	path = rasa-nlu-trainer
+	url = git@github.com:Samurais/rasa-nlu-trainer.git
+[submodule "rasa_nlu"]
+	path = rasa_nlu
+	url = git@github.com:Samurais/rasa_nlu.git

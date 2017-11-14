@@ -7,7 +7,7 @@
 baseDir=$(cd `dirname "$0"`;pwd)
 appHome=$baseDir/..
 registry=registry.arrking.com
-imagename=$registry/ada/nlu-trainer
+imagename=$registry/ada/rasa-trainer
 # functions
 
 # main 

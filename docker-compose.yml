@@ -1,6 +1,18 @@
 version: '2'
 services:
-  rasa_nlu:
-    image: registry.arrking.com/ada/rasa_nlu:latest
-  rasa_trainer:
-    
+  rasa-nlu:
+    image: registry.arrking.com/ada/rasa_nlu:0.10.4-full
+    volumes:
+     - $PWD/docker/nlu/data:/app/data
+     - $PWD/docker/nlu/projects:/app/projects
+     - $PWD/docker/nlu/logs:/app/logs
+     - $PWD/docker/nlu/config.json:/app/config.json
+    ports:
+     - 8007:5000
+  rasa-trainer:
+    image: registry.arrking.com/ada/nlu-trainer:0.2.7
+    volumes:
+     - $PWD/docker/trainer/data:/data 
+    ports:
+     - 8006:8080
+    command: "node server.js -p 8080 -s /data/sample.json" 

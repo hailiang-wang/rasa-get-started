@@ -1,6 +1,7 @@
 #! /bin/bash 
 ###########################################
 #
+# https://hub.docker.com/r/rasa/rasa_nlu/
 ###########################################
 
 # constants
@@ -10,11 +11,4 @@ baseDir=$(cd `dirname "$0"`;pwd)
 # main 
 [ -z "${BASH_SOURCE[0]}" -o "${BASH_SOURCE[0]}" = "$0" ] || return
 cd $baseDir/..
-docker run \
-    --rm \
-    -e NODE_ENV=production \
-    -v $PWD/docker/trainer/data:/data \
-    -p 8006:8080 \
-    registry.arrking.com/ada/nlu-trainer:develop \
-    node server.js -p 8080 -s /data/sample.json
-
+docker run -p 5000:5000 rasa/rasa_nlu:0.10.4-full
